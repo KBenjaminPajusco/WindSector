@@ -42,7 +42,7 @@ pip install xarray cfgrib numpy && python3 pipeline/grib_to_analogdb.py fichiers
 
 ## Déploiement GitHub Pages
 
-1. Settings → Pages → *Build and deployment* → Source : **GitHub Actions**.
+1. Settings → Pages → *Build and deployment* → Source : **Deploy from a branch**, branche **gh-pages**, dossier **/ (root)**.
 2. Fusionner sur `main` : le workflow `Deploy GitHub Pages` construit et publie le site
    (puis toutes les 3 h pour rafraîchir les stations Météo-France).
 3. Optionnel : lancer manuellement `Build analog archive` pour pré-calculer l'archive AROME de chaque zone
