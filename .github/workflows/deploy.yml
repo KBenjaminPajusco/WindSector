@@ -1,0 +1,55 @@
+# Build + deploy to GitHub Pages. Also refreshes the Météo-France station data every 3 hours
+# (the source files have no CORS headers, so they are baked into the static site).
+# One-time setup: Settings → Pages → Build and deployment → Source: "GitHub Actions".
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '17 */3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Cache Météo-France 2020-2024 archive
+        uses: actions/cache@v4
+        with:
+          path: .mf-cache
+          key: mf-archive-2020-2024-v1
+      - name: Refresh Météo-France stations
+        run: python3 pipeline/fetch_meteofrance.py --cache .mf-cache
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

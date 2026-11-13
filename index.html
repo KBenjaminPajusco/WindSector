@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>WindSector Marseille</title>
+    <meta name="description" content="Carte 3D du vent à Marseille : anémomètres publics, prévisions AROME sur l'eau, analogues historiques et scénarios gauche/droite." />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3l7 12h-5v14h-4V15H9z' fill='%230b3d91'/%3E%3C/svg%3E" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand"><span class="logo">▲</span> <span class="name">WindSector</span> <small>Marseille</small></div>
+      <div class="controls">
+        <label>Modèle <select id="model"></select></label>
+        <div class="seg" role="group" aria-label="Vue">
+          <button id="v2d" type="button">2D</button><button id="v3d" type="button" class="on">3D</button>
+        </div>
+        <button id="toggle-left" class="ghost mobile-only" type="button">Stations</button>
+        <button id="toggle-right" class="ghost mobile-only" type="button">Analyse</button>
+      </div>
+    </header>
+    <main class="layout">
+      <aside id="left" class="panel">
+        <h2>Anémomètres publics</h2>
+        <div class="layers">
+          <label><input type="checkbox" data-layer="stations" checked /> Stations</label>
+          <label><input type="checkbox" data-layer="field" checked /> Champ de vent sur l'eau</label>
+          <label><input type="checkbox" data-layer="arrows" checked /> Flèches prévision</label>
+          <label><input type="checkbox" data-layer="hillshade" checked /> Ombrage relief</label>
+        </div>
+        <div id="sources-status" class="muted small"></div>
+        <div id="station-list"></div>
+      </aside>
+      <section id="map-wrap">
+        <div id="map"></div>
+        <div id="legend" class="legend"></div>
+        <div id="timebar" class="timebar">
+          <button id="play" type="button" title="Animer">▶</button>
+          <input id="time" type="range" min="0" max="0" value="0" />
+          <div id="time-label">–</div>
+          <button id="now" type="button" class="ghost">Maintenant</button>
+        </div>
+        <div id="toast" class="toast" hidden></div>
+      </section>
+      <aside id="right" class="panel">
+        <h2>Plan d'eau &amp; scénarios</h2>
+        <label class="block">Zone
+          <select id="zone"></select>
+        </label>
+        <p id="zone-note" class="muted small"></p>
+        <div id="zone-now"></div>
+        <details class="opts">
+          <summary>Paramètres des analogues</summary>
+          <div class="grid2">
+            <label>Fenêtre (h) <input id="o-window" type="number" min="1" max="8" value="3" /></label>
+            <label>Tol. direction (°) <input id="o-dir" type="number" min="5" max="60" value="20" /></label>
+            <label>Tol. force (%) <input id="o-spd" type="number" min="10" max="80" value="30" /></label>
+            <label>Tol. heure (h) <input id="o-hour" type="number" min="0" max="12" value="2" /></label>
+            <label>Saison ± (jours, 0 = toute l'année) <input id="o-season" type="number" min="0" max="182" value="60" /></label>
+            <label>Analogues max <input id="o-max" type="number" min="5" max="200" value="40" /></label>
+          </div>
+        </details>
+        <label class="block">Station de référence pour le « vécu » mesuré
+          <select id="ref-station"></select>
+        </label>
+        <button id="analyse" type="button" class="primary">Analyser les vents similaires</button>
+        <div id="analysis"></div>
+      </aside>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

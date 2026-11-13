@@ -1,0 +1,66 @@
+[
+  {
+    "id": "rade-sud",
+    "name": "Rade Sud — Prado / Pointe Rouge",
+    "lat": 43.252,
+    "lon": 5.352,
+    "halfKm": 2.2,
+    "note": "Zone de régate classique, effets de côte des Goudes et de Montredon."
+  },
+  {
+    "id": "rade-nord",
+    "name": "Rade Nord — Estaque",
+    "lat": 43.335,
+    "lon": 5.3,
+    "halfKm": 2.2,
+    "note": "Abritée par la Nerthe en Mistral, canalisation par le port."
+  },
+  {
+    "id": "frioul",
+    "name": "Frioul / Planier",
+    "lat": 43.262,
+    "lon": 5.268,
+    "halfKm": 2.5,
+    "note": "Large, peu d’effets de côte, accélération entre les îles."
+  },
+  {
+    "id": "cote-bleue",
+    "name": "Côte Bleue — Carry / Sausset",
+    "lat": 43.318,
+    "lon": 5.14,
+    "halfKm": 2.5,
+    "note": "Mistral orienté NO, thermique d’ouest l’été."
+  },
+  {
+    "id": "cassis",
+    "name": "Calanques — Cassis",
+    "lat": 43.2,
+    "lon": 5.515,
+    "halfKm": 2.2,
+    "note": "Relief du Cap Canaille et des calanques, rafales en Mistral."
+  },
+  {
+    "id": "la-ciotat",
+    "name": "Baie de La Ciotat",
+    "lat": 43.163,
+    "lon": 5.62,
+    "halfKm": 2.2,
+    "note": "Bec de l’Aigle, effets d’abri en vent d’est."
+  },
+  {
+    "id": "berre",
+    "name": "Étang de Berre",
+    "lat": 43.47,
+    "lon": 5.14,
+    "halfKm": 3.0,
+    "note": "Plan d’eau fermé, Mistral canalisé, thermique de SO."
+  },
+  {
+    "id": "fos",
+    "name": "Golfe de Fos",
+    "lat": 43.385,
+    "lon": 4.94,
+    "halfKm": 3.0,
+    "note": "Plat, exposé au Mistral et aux brises de mer."
+  }
+]

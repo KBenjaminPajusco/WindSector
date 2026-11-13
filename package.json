@@ -1,0 +1,29 @@
+{
+  "name": "windsector",
+  "version": "1.0.0",
+  "description": "Carte 3D du vent à Marseille : anémomètres publics, prévisions sur l eau, analogues et scénarios",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "data:mf": "python3 pipeline/fetch_meteofrance.py"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KBenjaminPajusco/WindSector.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KBenjaminPajusco/WindSector/issues"
+  },
+  "homepage": "https://github.com/KBenjaminPajusco/WindSector#readme",
+  "dependencies": {
+    "maplibre-gl": "^6.18.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "vite": "^6.4.6"
+  },
+  "private": true,
+  "type": "module"
+}
